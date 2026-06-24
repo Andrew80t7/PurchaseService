@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  sber_db:
+    image: postgres:15-alpine
+    container_name: sber_postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: super_secure_password123
+      POSTGRES_DB: sber_tenders
+    ports:
+      - "5432:5432"
+    volumes:
+      - sber_db_data:/var/lib/postgresql/data
+
+volumes:
+  sber_db_data:
